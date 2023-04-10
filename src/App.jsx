@@ -1,37 +1,18 @@
-import 'antd/dist/reset.css';
-import { Layout } from "antd";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import Students from "./pages/student/Students";
-import AddStudent from "./pages/student/AddStudent";
-import EditStudent from "./pages/student/EditStudent";
-import Student from "./pages/student/Student";
-const { Header, Content } = Layout;
-
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Post from "./components/Post";
+import CreatePost from "./components/CreatePost";
 function App() {
   return (
-    <Router>
-      <Layout className="layout-wrapper">
-        <Header
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-          }}
-        >
-          <Link className="ant-btn" to="/students/add">
-            Add Student
-          </Link>
-        </Header>
-        <Content className="content-wrapper" style={{ padding: "20px 50px" }}>
-          <Switch>
-            <Route exact path="/" component={Students} />
-            <Route exact path="/students/add" component={AddStudent} />
-            <Route exact path="/students/:id" component={Student} />
-            <Route exact path="/students/edit/:id" component={EditStudent} />
-          </Switch>
-        </Content>
-      </Layout>
-    </Router>
+    <>
+      {" "}
+      <div className="Container">
+        <Routes>
+          <Route path="/" element={<Post />}></Route>
+          <Route path="/createpost" element={<CreatePost />}></Route>
+        </Routes>
+      </div>
+    </>
   );
 }
 
