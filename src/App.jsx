@@ -1,18 +1,22 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Post from "./components/Post";
-import CreatePost from "./components/CreatePost";
+import UserList from "./features/users/UserList";
+import { Routes,Route } from "react-router-dom";
+import AddUser from "./features/users/AddUser";
+import EditUser from "./features/users/EditUser";
+
 function App() {
   return (
-    <>
-      {" "}
-      <div className="Container">
-        <Routes>
-          <Route path="/" element={<Post />}></Route>
-          <Route path="/createpost" element={<CreatePost />}></Route>
-        </Routes>
-      </div>
-    </>
+    <div className="container mx-auto px-2 mx-w-5xl pt-10 md:pt-32">
+    <h1 className="text-center font-bold text-2xl text-gray-700">CRUD with redux toolkit</h1>
+
+    <Routes>
+      <Route path='/' element={ <UserList/>}/>
+      <Route path='/add-user' element={ <AddUser/>}/>
+      <Route path='/edit-user/:id' element={ <EditUser/>}/>
+    </Routes>
+   
+   
+    </div>
   );
 }
 
